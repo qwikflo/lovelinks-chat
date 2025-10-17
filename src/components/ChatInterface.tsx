@@ -2,9 +2,11 @@ import { useState, useRef, useEffect } from 'react';
 import { Box, Container, Typography, Paper } from '@mui/material';
 import { ChatMessage, Message } from './ChatMessage';
 import { ChatInput } from './ChatInput';
+import { WelcomeScreen } from './WelcomeScreen';
 
 export const ChatInterface = () => {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [showWelcome, setShowWelcome] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -16,6 +18,8 @@ export const ChatInterface = () => {
   }, [messages]);
 
   const handleSendMessage = (content: string, attachments: File[]) => {
+    setShowWelcome(false);
+    
     const newMessage: Message = {
       id: Date.now().toString(),
       role: 'user',
@@ -37,6 +41,10 @@ export const ChatInterface = () => {
       setMessages(prev => [...prev, assistantMessage]);
     }, 1000);
   };
+
+  if (showWelcome) {
+    return <WelcomeScreen onSendMessage={handleSendMessage} />;
+  }
 
   return (
     <Box
