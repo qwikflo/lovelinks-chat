@@ -1,5 +1,5 @@
 import { Box, Container, Typography, TextField, IconButton, Chip } from '@mui/material';
-import { AttachFile, Search, MenuBook, Mic } from '@mui/icons-material';
+import { AttachFile, Search, MenuBook, Send } from '@mui/icons-material';
 import { useState, KeyboardEvent, ChangeEvent, useRef } from 'react';
 
 interface WelcomeScreenProps {
@@ -169,18 +169,24 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
             </Box>
 
             <IconButton
+              onClick={handleSend}
+              disabled={!message.trim() && attachments.length === 0}
               sx={{
-                color: 'hsl(var(--foreground))',
-                bgcolor: 'transparent',
-                border: '1px solid hsl(var(--border))',
+                bgcolor: 'hsl(var(--primary))',
+                color: 'hsl(var(--primary-foreground))',
                 borderRadius: '12px',
                 '&:hover': {
+                  bgcolor: 'hsl(var(--primary))',
+                  opacity: 0.9,
+                },
+                '&:disabled': {
                   bgcolor: 'hsl(var(--muted))',
+                  color: 'hsl(var(--muted-foreground))',
                 },
               }}
-              aria-label="Voice input"
+              aria-label="Send message"
             >
-              <Mic />
+              <Send />
             </IconButton>
           </Box>
 

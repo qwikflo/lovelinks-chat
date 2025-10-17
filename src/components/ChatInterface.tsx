@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Box, Container, Typography, Paper, IconButton } from '@mui/material';
-import { Home } from '@mui/icons-material';
+import { Box, Container, Typography, Paper } from '@mui/material';
 import { ChatMessage, Message } from './ChatMessage';
 import { ChatInput } from './ChatInput';
 import { WelcomeScreen } from './WelcomeScreen';
@@ -43,11 +42,6 @@ export const ChatInterface = () => {
     }, 1000);
   };
 
-  const handleReset = () => {
-    setMessages([]);
-    setShowWelcome(true);
-  };
-
   if (showWelcome) {
     return <WelcomeScreen onSendMessage={handleSendMessage} />;
   }
@@ -72,29 +66,15 @@ export const ChatInterface = () => {
         }}
       >
         <Container maxWidth="lg">
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: 600,
-                color: 'hsl(var(--foreground))',
-              }}
-            >
-              Chat Interface
-            </Typography>
-            <IconButton
-              onClick={handleReset}
-              sx={{
-                color: 'hsl(var(--foreground))',
-                '&:hover': {
-                  bgcolor: 'hsl(var(--muted))',
-                },
-              }}
-              aria-label="Return to home"
-            >
-              <Home />
-            </IconButton>
-          </Box>
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 600,
+              color: 'hsl(var(--foreground))',
+            }}
+          >
+            Chat Interface
+          </Typography>
         </Container>
       </Paper>
 
