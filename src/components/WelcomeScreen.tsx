@@ -38,7 +38,7 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
     <Box
       sx={{
         minHeight: '100vh',
-        bgcolor: 'hsl(222 47% 11%)',
+        bgcolor: 'hsl(var(--background))',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -50,7 +50,7 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
           <Typography
             variant="h3"
             sx={{
-              color: 'hsl(0 0% 95%)',
+              color: 'hsl(var(--foreground))',
               fontWeight: 400,
               fontSize: { xs: '2rem', md: '2.5rem' },
             }}
@@ -61,10 +61,11 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
 
         <Box
           sx={{
-            bgcolor: 'hsl(222 47% 18%)',
+            bgcolor: 'hsl(var(--card))',
             borderRadius: '24px',
             p: 2,
-            boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+            boxShadow: 'var(--shadow-lg)',
+            border: '1px solid hsl(var(--border))',
           }}
         >
           <TextField
@@ -79,16 +80,16 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
             InputProps={{
               disableUnderline: true,
               sx: {
-                color: 'hsl(0 0% 95%)',
+                color: 'hsl(var(--foreground))',
                 fontSize: '1rem',
                 px: 2,
                 py: 1,
                 '& input::placeholder': {
-                  color: 'hsl(0 0% 60%)',
+                  color: 'hsl(var(--muted-foreground))',
                   opacity: 1,
                 },
                 '& textarea::placeholder': {
-                  color: 'hsl(0 0% 60%)',
+                  color: 'hsl(var(--muted-foreground))',
                   opacity: 1,
                 },
               },
@@ -120,14 +121,14 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
                 onClick={() => fileInputRef.current?.click()}
                 sx={{
                   bgcolor: 'transparent',
-                  color: 'hsl(0 0% 80%)',
-                  border: '1px solid hsl(0 0% 30%)',
+                  color: 'hsl(var(--foreground))',
+                  border: '1px solid hsl(var(--border))',
                   borderRadius: '12px',
                   '&:hover': {
-                    bgcolor: 'hsl(0 0% 20%)',
+                    bgcolor: 'hsl(var(--muted))',
                   },
                   '& .MuiChip-icon': {
-                    color: 'hsl(0 0% 80%)',
+                    color: 'hsl(var(--foreground))',
                   },
                 }}
               />
@@ -137,14 +138,14 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
                 label="Search"
                 sx={{
                   bgcolor: 'transparent',
-                  color: 'hsl(0 0% 80%)',
-                  border: '1px solid hsl(0 0% 30%)',
+                  color: 'hsl(var(--foreground))',
+                  border: '1px solid hsl(var(--border))',
                   borderRadius: '12px',
                   '&:hover': {
-                    bgcolor: 'hsl(0 0% 20%)',
+                    bgcolor: 'hsl(var(--muted))',
                   },
                   '& .MuiChip-icon': {
-                    color: 'hsl(0 0% 80%)',
+                    color: 'hsl(var(--foreground))',
                   },
                 }}
               />
@@ -154,14 +155,14 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
                 label="Study"
                 sx={{
                   bgcolor: 'transparent',
-                  color: 'hsl(0 0% 80%)',
-                  border: '1px solid hsl(0 0% 30%)',
+                  color: 'hsl(var(--foreground))',
+                  border: '1px solid hsl(var(--border))',
                   borderRadius: '12px',
                   '&:hover': {
-                    bgcolor: 'hsl(0 0% 20%)',
+                    bgcolor: 'hsl(var(--muted))',
                   },
                   '& .MuiChip-icon': {
-                    color: 'hsl(0 0% 80%)',
+                    color: 'hsl(var(--foreground))',
                   },
                 }}
               />
@@ -169,12 +170,12 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
 
             <IconButton
               sx={{
-                color: 'hsl(0 0% 80%)',
+                color: 'hsl(var(--foreground))',
                 bgcolor: 'transparent',
-                border: '1px solid hsl(0 0% 30%)',
+                border: '1px solid hsl(var(--border))',
                 borderRadius: '12px',
                 '&:hover': {
-                  bgcolor: 'hsl(0 0% 20%)',
+                  bgcolor: 'hsl(var(--muted))',
                 },
               }}
               aria-label="Voice input"
@@ -191,8 +192,8 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
                   label={file.name}
                   size="small"
                   sx={{
-                    bgcolor: 'hsl(0 0% 25%)',
-                    color: 'hsl(0 0% 90%)',
+                    bgcolor: 'hsl(var(--muted))',
+                    color: 'hsl(var(--muted-foreground))',
                   }}
                 />
               ))}
