@@ -75,14 +75,14 @@ export const ChatInterface = () => {
         sx={{
           flex: 1,
           overflow: 'auto',
-          py: 3,
           display: 'flex',
-          alignItems: messages.length === 0 ? 'center' : 'flex-start',
+          flexDirection: 'column',
+          justifyContent: messages.length === 0 ? 'center' : 'flex-start',
         }}
       >
-        <Container maxWidth="lg" sx={{ width: '100%' }}>
+        <Container maxWidth="md" sx={{ width: '100%', py: 3 }}>
           {messages.length === 0 ? (
-            <Box sx={{ textAlign: 'center', py: 8 }}>
+            <Box sx={{ textAlign: 'center', mb: 8 }}>
               <Typography
                 variant="h4"
                 sx={{
@@ -108,12 +108,14 @@ export const ChatInterface = () => {
       {/* Input Area */}
       <Box
         sx={{
-          borderTop: '1px solid hsl(var(--border))',
+          borderTop: messages.length > 0 ? '1px solid hsl(var(--border))' : 'none',
           bgcolor: 'hsl(var(--background))',
           py: 2,
+          position: messages.length === 0 ? 'relative' : 'sticky',
+          bottom: 0,
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="md">
           <ChatInput onSendMessage={handleSendMessage} />
         </Container>
       </Box>
