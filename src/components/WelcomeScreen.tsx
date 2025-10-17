@@ -1,5 +1,5 @@
 import { Box, Container, Typography, TextField, IconButton, Chip } from '@mui/material';
-import { AttachFile, Search, MenuBook, Send } from '@mui/icons-material';
+import { AttachFile, Send } from '@mui/icons-material';
 import { useState, KeyboardEvent, ChangeEvent, useRef } from 'react';
 
 interface WelcomeScreenProps {
@@ -119,40 +119,6 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
                 icon={<AttachFile sx={{ fontSize: '1rem' }} />}
                 label="Attach"
                 onClick={() => fileInputRef.current?.click()}
-                sx={{
-                  bgcolor: 'transparent',
-                  color: 'hsl(var(--foreground))',
-                  border: '1px solid hsl(var(--border))',
-                  borderRadius: '12px',
-                  '&:hover': {
-                    bgcolor: 'hsl(var(--muted))',
-                  },
-                  '& .MuiChip-icon': {
-                    color: 'hsl(var(--foreground))',
-                  },
-                }}
-              />
-              
-              <Chip
-                icon={<Search sx={{ fontSize: '1rem' }} />}
-                label="Search"
-                sx={{
-                  bgcolor: 'transparent',
-                  color: 'hsl(var(--foreground))',
-                  border: '1px solid hsl(var(--border))',
-                  borderRadius: '12px',
-                  '&:hover': {
-                    bgcolor: 'hsl(var(--muted))',
-                  },
-                  '& .MuiChip-icon': {
-                    color: 'hsl(var(--foreground))',
-                  },
-                }}
-              />
-              
-              <Chip
-                icon={<MenuBook sx={{ fontSize: '1rem' }} />}
-                label="Study"
                 sx={{
                   bgcolor: 'transparent',
                   color: 'hsl(var(--foreground))',
