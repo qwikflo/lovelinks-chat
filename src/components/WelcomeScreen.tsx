@@ -1,5 +1,5 @@
 import { Box, Container, Typography, TextField, IconButton, Chip } from '@mui/material';
-import { AttachFile, Send } from '@mui/icons-material';
+import { AttachFile, Search, MenuBook, Mic } from '@mui/icons-material';
 import { useState, KeyboardEvent, ChangeEvent, useRef } from 'react';
 
 interface WelcomeScreenProps {
@@ -132,27 +132,55 @@ export const WelcomeScreen = ({ onSendMessage }: WelcomeScreenProps) => {
                   },
                 }}
               />
+              
+              <Chip
+                icon={<Search sx={{ fontSize: '1rem' }} />}
+                label="Search"
+                sx={{
+                  bgcolor: 'transparent',
+                  color: 'hsl(var(--foreground))',
+                  border: '1px solid hsl(var(--border))',
+                  borderRadius: '12px',
+                  '&:hover': {
+                    bgcolor: 'hsl(var(--muted))',
+                  },
+                  '& .MuiChip-icon': {
+                    color: 'hsl(var(--foreground))',
+                  },
+                }}
+              />
+              
+              <Chip
+                icon={<MenuBook sx={{ fontSize: '1rem' }} />}
+                label="Study"
+                sx={{
+                  bgcolor: 'transparent',
+                  color: 'hsl(var(--foreground))',
+                  border: '1px solid hsl(var(--border))',
+                  borderRadius: '12px',
+                  '&:hover': {
+                    bgcolor: 'hsl(var(--muted))',
+                  },
+                  '& .MuiChip-icon': {
+                    color: 'hsl(var(--foreground))',
+                  },
+                }}
+              />
             </Box>
 
             <IconButton
-              onClick={handleSend}
-              disabled={!message.trim() && attachments.length === 0}
               sx={{
-                bgcolor: 'hsl(var(--primary))',
-                color: 'hsl(var(--primary-foreground))',
+                color: 'hsl(var(--foreground))',
+                bgcolor: 'transparent',
+                border: '1px solid hsl(var(--border))',
                 borderRadius: '12px',
                 '&:hover': {
-                  bgcolor: 'hsl(var(--primary))',
-                  opacity: 0.9,
-                },
-                '&:disabled': {
                   bgcolor: 'hsl(var(--muted))',
-                  color: 'hsl(var(--muted-foreground))',
                 },
               }}
-              aria-label="Send message"
+              aria-label="Voice input"
             >
-              <Send />
+              <Mic />
             </IconButton>
           </Box>
 
