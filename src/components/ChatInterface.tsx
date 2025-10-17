@@ -3,17 +3,8 @@ import { Box, Container, Typography, Paper } from '@mui/material';
 import { ChatMessage, Message } from './ChatMessage';
 import { ChatInput } from './ChatInput';
 
-const INITIAL_MESSAGES: Message[] = [
-  {
-    id: '1',
-    role: 'assistant',
-    content: 'Hello! How can I help you today?',
-    timestamp: new Date(),
-  },
-];
-
 export const ChatInterface = () => {
-  const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
+  const [messages, setMessages] = useState<Message[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -85,13 +76,32 @@ export const ChatInterface = () => {
           flex: 1,
           overflow: 'auto',
           py: 3,
+          display: 'flex',
+          alignItems: messages.length === 0 ? 'center' : 'flex-start',
         }}
       >
-        <Container maxWidth="lg">
-          {messages.map(message => (
-            <ChatMessage key={message.id} message={message} />
-          ))}
-          <div ref={messagesEndRef} />
+        <Container maxWidth="lg" sx={{ width: '100%' }}>
+          {messages.length === 0 ? (
+            <Box sx={{ textAlign: 'center', py: 8 }}>
+              <Typography
+                variant="h4"
+                sx={{
+                  color: 'hsl(var(--muted-foreground))',
+                  fontWeight: 500,
+                  mb: 1,
+                }}
+              >
+                How can I help you today?
+              </Typography>
+            </Box>
+          ) : (
+            <>
+              {messages.map(message => (
+                <ChatMessage key={message.id} message={message} />
+              ))}
+              <div ref={messagesEndRef} />
+            </>
+          )}
         </Container>
       </Box>
 
